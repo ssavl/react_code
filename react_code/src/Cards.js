@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default () => (
+export default (props) => (
     
     <div className="container mt-5">
         <br/>
@@ -20,14 +20,14 @@ export default () => (
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
                         <p className="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                            This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.
                         </p>
                         <p className="card-text">
                         <small className="text-muted">Last updated 3 mins ago</small>
                         </p>
                     </div>
-                    <button className="btn btn-dark">Submit</button>
+                    <button className="btn btn-dark">{props.btnState.title}</button>
                     </div>
                 </div>
                 </div>
@@ -38,7 +38,7 @@ export default () => (
                     <div className="col-md-4">
                     <img
                         src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg"
-                        alt="..."
+                        alt="img"
                         className="img-fluid"
                     />
                     </div>
@@ -46,14 +46,14 @@ export default () => (
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
                         <p className="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                            This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.
                         </p>
                         <p className="card-text">
-                        <small className="text-muted">Last updated 3 mins ago</small>
+                        <small className="text-muted">Last updated 3 mins ago {props.btnState.btnTitle}</small>
                         </p>
                     </div>
-                    <button className="btn btn-dark">Submit</button>
+                        <button onClick={props.handler} className="btn btn-dark">{props.btnState.title}</button>
                     </div>
                 </div>
                 </div>
