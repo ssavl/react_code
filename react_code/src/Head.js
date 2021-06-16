@@ -25,7 +25,14 @@ class Head extends Component {
         btn: {
             btnState: true,
             btnTitle: "off"
-        }
+        },
+        news: [ 
+            {title: 'Россияне отдают приоритет МФО',date:'15.07.2021', body: "Доля россиян, берущих микрозаймы, стала максимальной за последние 4 года, сообщает РБК. В текущем году, по данным бюро 'Эквифакс', количество заемщиков МФО растет за счет того, что банковские клиенты становятся клиентами МФО."},
+            {title: 'Путин объявил дни с 1 по 10 мая выходными',date: "15.07.2021", body: "Президент Путин объявил дни с 1 по 10 мая выходными, 11 мая на работу. В этом году майские выходные должны были продлиться с 1 по 3 мая и с 8 по 10 мая. Согласно решению президента, теперь нерабочими станут и четыре дня между ними."},
+            {title: 'Займы выдуют бесплатно',date: "19.07.2021", body: "В этом году майские выходные должны были продлиться с 1 по 3 мая и с 8 по 10 мая. Согласно решению президента, теперь нерабочими станут и четыре дня между ними."},
+
+        ],
+
     }
 
     clickButtonHandler = (newTitle = 'on!') => {
@@ -63,10 +70,37 @@ class Head extends Component {
             </h1>
             <Second name={this.state.userName} year={this.state.userAge} /> 
             <RealComponent />
-            <Cards btnState={this.state} handler={this.clickButtonHandler} />
-                <button onClick={this.clickButtonHandler.bind(this, 'Title')} className="btn btn-dark">{this.state.title}</button>
+            <div className="container">
+                <div className="row">
+                        {this.state.news.map((news, index) => {
+                            return (
+                            <div className="col-4">
+                                <Cards 
+                                    newsTitle={news.title} 
+                                    newsBody={news.body}
+                                    newsDate={news.date}
+                                    key={index}    />
+                            </div>)
+                        })}
+                    
+                </div>
+            </div>
+                {/* <button onClick={this.clickButtonHandler.bind(this, 'Title')} className="btn btn-dark">{this.state.title}</button>
                 <button onClick={this.clickButtonHandler.bind(this, 'Bingo!')} className="btn btn-dark">error</button>
-            <InputCard userData={this.changeUserData} />
+            <InputCard /> */}
+            
+
+            {/* { this.state.users.map((user, index) => {
+                return (
+                    <div>
+                        {user.key = index}
+                    <h4>{user.name}</h4>
+                    <h6>{user.age}</h6>
+                    <hr></hr>
+                    </div>
+                )
+            })} */}
+    
         </div>
         );
     }
