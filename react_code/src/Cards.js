@@ -3,7 +3,7 @@ import React from 'react';
 
 export default (props) => (
     
-    <div>
+    <div className="mt-3">
         <div className="card mb-3 shadow-5-strong" style={{maxWidth: "540px"}}>
             <div className="row g-0">
                 <div className="col-md-4">
@@ -23,7 +23,7 @@ export default (props) => (
                     <small className="text-muted">Last updated {props.newsDate}</small>
                     </p>
                 </div>
-                <button className="btn btn-dark">Кнопка</button>
+                <button onClick={props.onDelete} className="btn btn-dark mb-3">Удалить</button>
                 </div>
             </div>
         </div>

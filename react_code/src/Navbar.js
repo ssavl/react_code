@@ -3,7 +3,7 @@ export default (props) => (
     
     <nav className="navbar text-white navbar-dark bg-dark mb-5">
     <div className="container-fluid text-white">
-        <a className="navbar-brand" href="#">Navbar</a>
+        <a className="navbar-brand" href="#">React</a>
         <button
         className="navbar-toggler"
         type="button"
