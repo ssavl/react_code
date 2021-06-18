@@ -16,10 +16,11 @@ class Head extends Component {
         super(props) 
 
             this.state =  {
+                title: '',
+                body: '',
                 cardVisible: true,
                 userAge: 14,
                 userName: 'Savelii',
-                title: 'off',
                 button1: 'AboutUs',
                 button2: 'Submit',
                 navbar: [
@@ -81,6 +82,10 @@ class Head extends Component {
         })
     }
 
+    pushArticles = (event) => {
+        console.log(event.target)
+    }
+
     render() {
         console.log('Render..')
         const nav = this.state.navbar
@@ -93,13 +98,14 @@ class Head extends Component {
                 <div className="row">
                     <div className="col-6">
                     <form>
+                        <h1>{this.state.title}</h1>
                         <div className="mb-4">
-                                <input className="form-control" id="title" type="text" placeholder="Title"></input>
+                                <input value={ (event) => this.setState({title:event.target.value})} name="titleInput" className="form-control" id="title" type="text" placeholder="Title"></input>
                         </div>
                         <div className="mb-4">
-                                <input className="form-control" id="text" type="text" placeholder="Text"></input>
+                                <input name="bodyInput" className="form-control" id="text" type="text" placeholder="Text"></input>
                         </div>
-                        <button className="btn btn-dark">Submit</button>
+                        <button className="btn btn-dark" onClick={this.pushArticles.bind(this)}>Submit</button>
                         </form>
                     </div>
                     <div className="col-6">
