@@ -1,21 +1,19 @@
 import React from 'react'
 import './ActiveQuiz.css'
+import AnswerList from '../AnswerList/AnswerList'
 
 const ActiveQuiz = (props) => (
     <div className="ActiveQuiz">
     <p className="Question">
         <span>
             <strong>2.</strong>&nbsp;
-            Какого цвета сейчас небо?
+            {props.question}
         </span>
-        <small>4 из 12</small>
+        <small>{props.quizNumber} из {props.quizLength}</small>
     </p>
 
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-    </ul>
+    <AnswerList answers={props.answers} answerHandler={props.answerHandler}/>
+
     </div>
 )
 
