@@ -2,12 +2,16 @@ import React, {Component} from 'react'
 import './Quiz.css'
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 
-class Quiz extends Component {
+export default class Quiz extends Component {
+
     state = {
+        isAnswerTrue: 'false',
+        answerState: null,
         activeQuestion: 0,
         quiz: [
             {
               id: 0,
+              rightAnswer: 1,
               question:'Какого цвета сейчас небо?',
               answers: [
                   {text: 'Синий', id: 1},
@@ -18,6 +22,7 @@ class Quiz extends Component {
             },  
             {
               id: 1,
+              rightAnswer: 2,
               question:'Год основания supreme?',
               answers: [
                   {text: '2003', id: 1},
@@ -29,15 +34,35 @@ class Quiz extends Component {
   
         ],
     }
+    
 
     onAnswerHandler = (answerID) => {
-        console.log(answerID)
 
-        this.setState({
-            activeQuestion: this.state.activeQuestion + 1
-        })
+
+        const currentQuestion = this.state.quiz[this.state.activeQuestion]
+
+        if (Number(currentQuestion.rightAnswer) === Number(answerID)) {
+            
+            const timeout = window.setTimeout(() => {
+                if (this.isQuizFinished()) {
+                    console.log('Finished')
+                }
+                else {
+                    this.setState({
+                    activeQuestion: this.state.activeQuestion + 1,
+                })}
+
+                window.clearTimeout(timeout)
+            }, 1000)
+            console.log("ПРАВИЛЬНЫЙ ОТВЕТ!")
+        }
+        else {console.log("НЕВЕРНЫЙ ОТВЕТ :(")}
+
     }
-  
+
+    isQuizFinished() {
+        return this.state.ActiveQuiz + 1 === this.state.quiz.length
+    }
    
     render() {
         return (
@@ -56,6 +81,3 @@ class Quiz extends Component {
         )
     }
 }
-
-export default Quiz
-

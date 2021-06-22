@@ -4,7 +4,7 @@ import './AnswerItem.css'
 const AnswerItem = (props) => {
     return(
     <div>
-        <li className="AnswerItem" onClick={() => props.answerHandler(props.answer.id)}>
+        <li className="AnswerItem" onClick={props.answerHandler.bind(this, props.answer.id)}>
             {props.answer.text}
         </li>
     </div>
