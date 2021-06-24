@@ -36,12 +36,17 @@ export default class Quiz extends Component {
     }
     
 
+    
+
     onAnswerHandler = (answerID) => {
 
 
         const currentQuestion = this.state.quiz[this.state.activeQuestion]
 
         if (Number(currentQuestion.rightAnswer) === Number(answerID)) {
+            this.setState({
+                answerState: {[answerID]: 'success'}
+            })
             
             const timeout = window.setTimeout(() => {
                 if (this.isQuizFinished()) {
@@ -56,13 +61,18 @@ export default class Quiz extends Component {
             }, 1000)
             console.log("ПРАВИЛЬНЫЙ ОТВЕТ!")
         }
-        else {console.log("НЕВЕРНЫЙ ОТВЕТ :(")}
+        else {
+            this.setState({
+                answerState: {[answerID]: 'error'}
+            })
+            console.log("НЕВЕРНЫЙ ОТВЕТ :(")
+        }
 
     }
 
     isQuizFinished() {
-        return this.state.ActiveQuiz + 1 === this.state.quiz.length
-    }
+        return this.state.activeQuestion + 1 === this.state.quiz.length
+      }
    
     render() {
         return (
@@ -75,7 +85,8 @@ export default class Quiz extends Component {
                     quizNumber={this.state.quiz[this.state.activeQuestion].id + 1}
                     question={this.state.quiz[this.state.activeQuestion].question}
                     answers={this.state.quiz[this.state.activeQuestion].answers}
-                    answerHandler={this.onAnswerHandler}/>
+                    answerHandler={this.onAnswerHandler}
+                    state={this.state.answerState}/>
                 </div>
             </div>
         )

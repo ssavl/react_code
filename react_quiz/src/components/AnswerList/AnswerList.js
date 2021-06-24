@@ -11,7 +11,7 @@ const AnswersList = props => {
             key={index}
             answer={answer}
             answerHandler={props.answerHandler}
-          />
+            state={props.state ? props.state[answer.id] : null}/>
         )
       }) }
     </ul>

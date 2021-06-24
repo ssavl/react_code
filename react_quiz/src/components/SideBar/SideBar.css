@@ -1,0 +1,26 @@
+
+.Sidebar {
+    background-color: #ccc;
+    height: 100vh;
+    width: 400px;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out
+
+}
+
+.Sidebar.open {
+    transform: translateX(0);
+}
+
+.barInside {
+    padding-left: 130px;
+    padding-top: 40px;
+}
+
+.btn {
+    padding: 10px;
+}
