@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './Quiz.css'
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
+import Layout from '../../hoc/Layout/Layout'
 
 export default class Quiz extends Component {
 
@@ -76,19 +77,21 @@ export default class Quiz extends Component {
    
     render() {
         return (
-            <div className="Quiz ">
-                <div className="QuizWrapper">
-                    <h1 className="h1h1">Пройдите тест:</h1>
-                    <br/>
-                    <ActiveQuiz 
-                    quizLength={this.state.quiz.length}
-                    quizNumber={this.state.quiz[this.state.activeQuestion].id + 1}
-                    question={this.state.quiz[this.state.activeQuestion].question}
-                    answers={this.state.quiz[this.state.activeQuestion].answers}
-                    answerHandler={this.onAnswerHandler}
-                    state={this.state.answerState}/>
+            <Layout>
+                <div className="Quiz ">
+                    <div className="QuizWrapper">
+                        <h1 className="h1h1">Пройдите тест:</h1>
+                        <br/>
+                        <ActiveQuiz 
+                        quizLength={this.state.quiz.length}
+                        quizNumber={this.state.quiz[this.state.activeQuestion].id + 1}
+                        question={this.state.quiz[this.state.activeQuestion].question}
+                        answers={this.state.quiz[this.state.activeQuestion].answers}
+                        answerHandler={this.onAnswerHandler}
+                        state={this.state.answerState}/>
+                    </div>
                 </div>
-            </div>
+            </Layout>
         )
     }
 }
