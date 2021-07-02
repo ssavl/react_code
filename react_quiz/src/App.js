@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Quiz from './containers/Quiz/Quiz'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from '../src/Home'
+import {createStore} from 'redux'
 
 export default class App extends Component { 
 

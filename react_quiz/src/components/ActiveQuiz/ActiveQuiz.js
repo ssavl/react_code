@@ -3,6 +3,7 @@ import './ActiveQuiz.css'
 import AnswerList from '../AnswerList/AnswerList'
 
 const ActiveQuiz = (props) => (
+    <React.Fragment>
     <div className="ActiveQuiz">
     <p className="Question">
         <span>
@@ -18,6 +19,7 @@ const ActiveQuiz = (props) => (
     state={props.state}/>
     
     </div>
+    </React.Fragment>
 )
 
 export default ActiveQuiz
