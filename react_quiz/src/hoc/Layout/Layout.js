@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import  './Layout.css'
+import  './Layout.sass'
 import Navbar from '../../components/Navbar'
 import SideBar from '../../components/SideBar'
 
