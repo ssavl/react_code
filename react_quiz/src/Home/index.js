@@ -4,8 +4,6 @@ import {connect} from "react-redux";
 
 
 const Home = () => {
-    // console.log('Home', this.props)
-
     return(
         <Layout>
             <div style={{display:'flex', justifyContent: 'center', alignItems:'center'}}>

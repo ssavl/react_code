@@ -16,6 +16,12 @@ export default function rootReducer(state = initualState, action) {
                 counter: state.counter - 1
             }
         }
+        if (action.type === "ADD_NUMBER") {
+            return {
+                counter: state.counter + action.value
+            }
+        }
+        else {return state}
     }
 
     // switch (action.type) {

@@ -14,6 +14,8 @@ class App extends Component {
                 <h1>Счетчик: {this.props.counter}</h1>
                 <button onClick={this.props.onAdd}>Добавить</button>
                 <button onClick={this.props.onSub}>Вычесть</button>
+                <input type="text" placeholder="Добавить" value="1"/>
+                <button onClick={this.props.onNumber.bind(this, 15)}> ДОБАВИТЬ В СЧЕТЧИК</button>
                 <BrowserRouter>
                     <Switch>
                         <Route path="/" exact component={Home}/>
@@ -34,7 +36,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         onAdd: () => dispatch({type: 'ADD'}),
-        onSub: () => dispatch({type: 'SUB'})
+        onSub: () => dispatch({type: 'SUB'}),
+        onNumber: (number) => dispatch({type: "ADD_NUMBER", value: number}),
     }
 }
 
