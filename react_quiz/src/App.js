@@ -2,20 +2,13 @@ import React, {Component} from 'react'
 import Quiz from './containers/Quiz/Quiz'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from '../src/Home'
-import {createStore} from 'redux'
-import {connect} from "react-redux";
-
+import './styles/hack.css'
 
 class App extends Component {
 
     render() {
         return (
             <div className="App">
-                <h1>Счетчик: {this.props.counter}</h1>
-                <button onClick={this.props.onAdd}>Добавить</button>
-                <button onClick={this.props.onSub}>Вычесть</button>
-                <input type="text" placeholder="Добавить" value="1"/>
-                <button onClick={this.props.onNumber.bind(this, 15)}> ДОБАВИТЬ В СЧЕТЧИК</button>
                 <BrowserRouter>
                     <Switch>
                         <Route path="/" exact component={Home}/>
@@ -27,18 +20,5 @@ class App extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        counter: state.counter,
-    }
-}
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onAdd: () => dispatch({type: 'ADD'}),
-        onSub: () => dispatch({type: 'SUB'}),
-        onNumber: (number) => dispatch({type: "ADD_NUMBER", value: number}),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
