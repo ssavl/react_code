@@ -7,29 +7,37 @@ const initState = {
 }
 
 export default function Reducer (state = initState, action) {
-    if (action.type === MAIN_ADD) {
-        return {
-            counter: state.counter + 1
+    switch (action.type) {
+        case MAIN_ADD: {
+            return {
+                ...state,
+                counter: state.counter + 1
+            }
         }
-    }
-    if (action.type === MAIN_SUB) {
-        return {
-            counter: state.counter - 1
+        case MAIN_SUB: {
+            return {
+                ...state,
+                counter: state.counter - 1
+            }
         }
-    }
-    if (action.type === ADD_INPUT) {
-        return {
-            counter: state.input
+        case ADD_INPUT: {
+            return {
+                ...state,
+                counter: state.input
+            }
         }
-    }
-    if (action.type === CHANGE_INPUT) {
-        return {
-            ...state,
-            input: Number(action.payload)
+        case CHANGE_INPUT: {
+            return {
+                ...state,
+                input: Number(action.payload)
+            }
+        }
+        default: {
+            return (
+                state
+            )
         }
     }
 
-    return (
-        state
-    )
+
 }

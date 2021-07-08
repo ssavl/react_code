@@ -1,17 +1,7 @@
 import axios from "axios";
 
-// const ax = require('axios');
-
 export const JsonCall = async () => {
-    try {
-        const x = await axios.get('http://jsonplaceholder.typicode.com/posts');
+    return await axios.get('http://127.0.0.1:8000/api/v1/articles/')
 
-        return x
-    } catch (e) {
-        console.log(e)
-    }
 
 }
-
-console.log('test' ,JsonCall())
-

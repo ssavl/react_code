@@ -15,11 +15,12 @@ const Home = (props) => {
     useEffect(async () => {
         const data = await JsonCall();
         setData(data.data)
-        console.log(data.data)
+        console.log('stateData', stateData)
     },[])
 
 
 
+    console.log('stateDatastateDatastateData', stateData)
 
     return (
         <Layout>
@@ -36,37 +37,25 @@ const Home = (props) => {
                         <div className={'NewsTitle'}>
                             <h3>News</h3>
                             <div className="row gx-3 gy-3">
-                                <div className="col-6">
-                                    <CardNews
-                                        title={'Найденный на спутнике Сатурна Энцеладе метан может быть признаком жизни'}
-                                        text={"На спутнике Сатурна Энцеладе обнаружили скопления метана. Это значит, что здесь может обитать жизнь. Астрономы обнаружили метановые скопления при помощи зонда Кассини-Гюйгенс."}
-                                        date={'30.04.2021'}/>
-                                </div>
-                                <div className="col-6">
-                                    <CardNews
-                                        title={'В Китае создали квантовый компьютер на 56 кубитов мощнее, чем у Google'}
-                                        text={'Группа китайских исследователей из университета науки и технологий создала программируемый квантовый компьютер, в основе которого лежат сверхпроводящие кубиты.'}
-                                        date={'21.12.2020'}/>
-                                </div>
-                                <div className="col-6">
-                                    <CardNews
-                                        title={'Инженеры университета в Беркли создали робота в виде таракана, которого нельзя раздавить'}
-                                        text={'В американском университете в Бёркли учеными-инженерами создан робот, напоминающий обычного таракана и с его же способностями, публикует Science Robotics.'}
-                                        date={'13.04.2021'}/>
-                                </div>
+                                {stateData.articles && stateData.articles.map((item, i) => {
+                                    return (
+                                        <div className="col-6">
+                                            <CardNews
+                                                title={item.title}
+                                                text={item.text}
+                                                date={item.date}
+                                                author={item.author}/>
+                                        </div>
+                                    )
+                                })}
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-6">
-                        {stateData.map((item, i) => {
-                            return (
-                                <div>
-                                    {item.title}
-                                </div>
-                            )
-                        })}
+
                     </div>
                     <div className="col-6"></div>
                 </div>
