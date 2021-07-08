@@ -2,9 +2,16 @@ import axios from "axios";
 
 // const ax = require('axios');
 
-export const JsonCall = () => {
-    const x = axios.get('http://jsonplaceholder.typicode.com/posts')
-        .then((response) => response.data)
+export const JsonCall = async () => {
+    try {
+        const x = await axios.get('http://jsonplaceholder.typicode.com/posts');
 
-    return x
+        return x
+    } catch (e) {
+        console.log(e)
+    }
+
 }
+
+console.log('test' ,JsonCall())
+

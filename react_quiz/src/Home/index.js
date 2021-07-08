@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Layout from '../hoc/Layout/Layout'
 import {connect} from "react-redux";
 import {createStore} from 'redux'
@@ -7,6 +7,18 @@ import './styles.sass'
 import { JsonCall } from '../utils/apiCall'
 
 const Home = (props) => {
+
+    const [stateData, setData] = useState([])
+
+
+
+    useEffect(async () => {
+        const data = await JsonCall();
+        setData(data.data)
+        console.log(data.data)
+    },[])
+
+
 
 
     return (
@@ -48,7 +60,13 @@ const Home = (props) => {
                 </div>
                 <div className="row">
                     <div className="col-6">
-                        {console.log(JsonCall((value) => value.data))}
+                        {stateData.map((item, i) => {
+                            return (
+                                <div>
+                                    {item.title}
+                                </div>
+                            )
+                        })}
                     </div>
                     <div className="col-6"></div>
                 </div>
