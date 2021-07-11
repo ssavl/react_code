@@ -20,7 +20,6 @@ const Home = (props) => {
 
 
 
-    console.log('stateDatastateDatastateData', stateData)
 
     return (
         <Layout>
