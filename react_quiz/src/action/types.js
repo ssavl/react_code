@@ -1,0 +1,1 @@
+export const NEW_ARTICLES = "NEW_ARTICLES"
