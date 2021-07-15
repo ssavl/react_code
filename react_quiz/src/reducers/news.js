@@ -11,9 +11,10 @@ export default function newsReducer (state = initialState, action) {
 
     switch (type) {
         case NEW_ARTICLES : {
+            console.log('payload', payload)
             return {
                 ...state,
-                news: action.payload.news
+                news: payload.news
             }
         }
         default:

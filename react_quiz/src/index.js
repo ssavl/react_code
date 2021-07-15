@@ -9,8 +9,10 @@ import rootReducer from "./redux/rootReducer";
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
+import {composeWithDevTools} from 'redux-devtools-extension';
+import store from './store'
 
-const store = createStore(combineReducers, applyMiddleware(thunk))
+// export const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
 
 const application = (
   <Provider store={store}>

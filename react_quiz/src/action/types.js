@@ -1,1 +1,16 @@
 export const NEW_ARTICLES = "NEW_ARTICLES"
+
+// Auth
+export const AUTH_CHANGE_FIELD = 'AUTH_CHANGE_FIELD';
+export const AUTH_CLEAR_STATE = 'AUTH_CLEAR_STATE';
+export const AUTH_CLOSE_MODAL = 'AUTH_CLOSE_MODAL';
+export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+export const AUTH_OPEN_MODAL = 'AUTH_OPEN_MODAL';
+export const AUTH_SET_AUTH_STEP = 'AUTH_SET_AUTH_STEP';
+export const AUTH_SET_ERROR = 'AUTH_SET_ERROR';
+export const AUTH_SET_USER = 'AUTH_SET_USER';
+
+// NOTIFICATION
+export const SET_NOTIFICATION = 'SET_NOTIFICATION';
+
+// User

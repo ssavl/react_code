@@ -11,14 +11,18 @@ import CardNews from "../components/CardNews";
 import './styles.sass'
 
 // Utils
-import { JsonCall } from '../utils/apiCall'
+import { JsonCall } from '../util/apiCall'
+import Button from "../components/Button";
 
 const Home = ({news, setNews, counter}) => {
 
     const newsApi = JsonCall()
 
     const getNews = () => {
-        newsApi.then(data => setNews(data.data))
+        newsApi.then(data => {
+            console.log(data)
+            setNews(data.data)
+        })
     }
 
     useEffect(() => {
@@ -34,22 +38,22 @@ const Home = ({news, setNews, counter}) => {
                         <h1 style={{marginTop: 100}}>Главная страница</h1>
                         <br/>
                         <h3>Счетчик: {counter}</h3>
-                        <button onClick={_=>_}>add</button>
-                        <button onClick={_=>_}>sub</button>
+                        <Button label={"Add"} onClick={_=>_} />
+                        <br/>
+                        <Button label={"Sub"} onClick={_=>_} />
                     </div>
                     <div className="col-8">
                         <div className={'NewsTitle'}>
                             <h3>News</h3>
                             <div className="row gx-3 gy-3">
-                                {news && news.data && news.articles.map((item, i) => {
+                                {news && news.articles && news.articles.map((item, i) => {
                                     return (
                                         <div className="col-6">
-                                            {item.title}
-                                            {/*<CardNews*/}
-                                            {/*    title={item.title}*/}
-                                            {/*    text={item.text}*/}
-                                            {/*    date={item.date}*/}
-                                            {/*    author={item.author}/>*/}
+                                            <CardNews
+                                                title={item.title}
+                                                text={item.text}
+                                                date={item.date}
+                                                author={item.author}/>
                                         </div>
                                     )
                                 })}

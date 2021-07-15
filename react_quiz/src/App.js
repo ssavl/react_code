@@ -3,6 +3,8 @@ import Quiz from './containers/Quiz/Quiz'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from '../src/Home'
 import './styles/hack.css'
+import Modal from "./components/Modal";
+import AuthModalContainer from "./containers/AuthModalContainer";
 
 class App extends Component {
 
@@ -15,6 +17,7 @@ class App extends Component {
                         <Route path="/quiz" exact component={Quiz}/>
                     </Switch>
                 </BrowserRouter>
+                <AuthModalContainer/>
             </div>
         );
     }
