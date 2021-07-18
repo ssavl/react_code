@@ -44,21 +44,22 @@ const Home = ({news, setNews, counter}) => {
                     </div>
                     <div className="col-8">
                         <div className={'NewsTitle'}>
-                            <h3>News</h3>
-                            <div className="row gx-3 gy-3">
-                                {news && news.articles && news.articles.map((item, i) => {
-                                    return (
-                                        <div className="col-6">
-                                            <CardNews
-                                                title={item.title}
-                                                text={item.text}
-                                                date={item.date}
-                                                author={item.author}/>
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
+                            <h3>Новости</h3>
+                            {news && news.articles ? (
+                                <div className="row gx-3 gy-3">
+                                    {news && news.articles && news.articles.map((item, i) => {
+                                        return (
+                                            <div className="col-6">
+                                                <CardNews
+                                                    title={item.title}
+                                                    text={item.text}
+                                                    date={item.date}
+                                                    author={item.author}/>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            ) : <div>Новости недоступны</div>}
                         </div>
                     </div>
                 </div>

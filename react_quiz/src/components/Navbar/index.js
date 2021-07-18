@@ -20,9 +20,14 @@ const Navbar = ({openModal, pushStyle}) => {
     const [passwordUser, setPassword] = useState('')
     const [statusAuthModal, setStatusModal] = useState('login')
     const [statusSuccessModal, setStatusSuccessModal] = useState(true)
+    const [statusSignUpModal, setStatusSignUpModal] = useState(true)
 
     const handleAuthModalOpen = () => {
         openModal()
+    }
+
+    const signUpHandler = () => {
+        console.log('Регистрация =>', )
     }
 
 
@@ -53,9 +58,9 @@ const Navbar = ({openModal, pushStyle}) => {
 
             {statusAuthModal === 'login' && (
                 <Modal
-                    title={'Тестовая модалка'}
-                    children={'Тестовый текст'}
-                    confirmBtn={'Вывести в консоль лог'}
+                    title={'Вход'}
+                    children={'Введите данные для входа в личный кабинет'}
+                    confirmBtn={'Отправить'}
                     onConfirm={testHandler}
                     isOpen={modalIsOpen}
                     onClose={() => setModal(false)}
@@ -65,7 +70,7 @@ const Navbar = ({openModal, pushStyle}) => {
                            onChange={(event) => setLogin(event.target.value)}
                            placeholder='login'
                     />
-
+                    <br/>
                     <input type={'password'}
                            onChange={(event) => setPassword(event.target.value)}
                            placeholder='password'
@@ -85,6 +90,24 @@ const Navbar = ({openModal, pushStyle}) => {
                 />
             )}
 
+            {statusAuthModal === "signUp" && (
+                <Modal
+                isOpen={statusSignUpModal}
+                onClose={() => setStatusSignUpModal(false)}
+                title={"Регистрация"}
+                children={"Пройдите регистрацию для доступа в сервис"}
+                confirmBtn={'Отправить'}
+                onConfirm={signUpHandler}
+                >
+
+                <input type="text" placeholder={'login'}/>
+                <br/>
+                <input type="password" placeholder={'password'}/>
+                <br/>
+                <input type="password" placeholder={'password confirm'}/>
+
+                </Modal>
+            )}
         </div>
     )
 }
