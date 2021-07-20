@@ -11,50 +11,40 @@ const Input = props => {
         field,
         mask,
         placeholder,
-        size = 'm',
-        type = 'text',
-        value,
-        onBlur = _ => _,
-        onChange,
-    } = props;
-
-    const handleBlur = e => {
-        e.preventDefault();
-        if (!disabled) {
-            onBlur(value, props);
-        }
-    };
-
-    const handleChange = e => {
-        e.preventDefault();
-        if (!disabled) {
-            onChange(e.target.value, props);
-        }
-    };
-
-    const inputProps = {
-        field,
-        onBlur: handleBlur,
-        onChange: handleChange,
-        disabled,
-        placeholder,
         type,
         value,
-    };
+    } = props;
 
-    const classInput = ['Input__input'];
-    if (error) classInput.push(`Input__error`);
-    if (size) classInput.push(`Input__${size}`)
+    // const inputProps = {
+    //     field,
+    //     onBlur: handleBlur,
+    //     onChange: handleChange,
+    //     disabled,
+    //     placeholder,
+    //     type,
+    //     value,
+    // };
+
+
+
+    const classInput = ['Input__input']
+    if (error) classInput.push(`Input__error`)
+    if (disabled) classInput.push(`Input__disabled`)
 
     return (
-        <div className='Input'>
-            {mask ? (
-                <InputMask {...inputProps} className={classInput.join(' ')} mask={mask} />
-            ) : (
-                <input className={classInput.join(' ')} {...inputProps} />
-            )}
-            {error && <div className='Input__error-detail'>{error}</div>}
-        </div>
+        <>
+            <div className={'Input__wrapper'}>
+                <input
+                    field={field}
+                    type={type}
+                    placeholder={placeholder}
+                    className={classInput.join(' ')}
+                    disabled={disabled}
+                    value={value}
+                />
+                <div className={'Input__border'}/>
+            </div>
+        </>
     );
 };
 

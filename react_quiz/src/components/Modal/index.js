@@ -32,7 +32,7 @@ const Modal = ({ isOpen, children, title, confirmBtn, onConfirm = _ => _, onClos
             <button className='Modal__close' onClick={onClose}>
                 <IconClose />
             </button>
-            {title && <div className='Modal__title underline'>{title}</div>}
+            {title && <div className='Modal__title'>{title}</div>}
             <div className='Modal__body'>{children}</div>
             {confirmBtn && (
                 <Button className='Modal__confirm-btn' label={confirmBtn} onClick={onConfirm} />

@@ -32,7 +32,7 @@ const Navbar = ({openModal, pushStyle}) => {
 
 
     const testHandler = (key, value) => {
-        axios.post('http://127.0.0.1:8000/api/v1/api-token-auth/', {
+        axios.post('http://127.0.0.1:8000/api/v1/api/auth/login', {
             username: loginUser,
             password: passwordUser
         }).then(response => {
@@ -41,7 +41,9 @@ const Navbar = ({openModal, pushStyle}) => {
                 setModal(false)
                 setStatusModal('success')
             }
-        }).catch(error => {console.log(error.response.status)})
+        }).catch(error => {if (error.response.status === 400) {
+            setStatusModal('signUp')
+        }})
 
     }
 
@@ -66,14 +68,21 @@ const Navbar = ({openModal, pushStyle}) => {
                     onClose={() => setModal(false)}
 
                 >
-                    <input type={'text'}
+                    <Input type={'text'}
+                           field={'login'}
+                           placeholder = {'Введите login'}
                            onChange={(event) => setLogin(event.target.value)}
-                           placeholder='login'
+                           // value = {(event) => event.target.value}
+                           error={false}
+                           disabled={false}
                     />
-                    <br/>
-                    <input type={'password'}
+                    <Input type={'password'}
+                           field={'password'}
+                           placeholder = {'Введите password'}
                            onChange={(event) => setPassword(event.target.value)}
-                           placeholder='password'
+                        // value = {(event) => event.target.value}
+                           error={false}
+                           disabled={false}
                     />
 
                 </Modal>
@@ -101,10 +110,10 @@ const Navbar = ({openModal, pushStyle}) => {
                 >
 
                 <input type="text" placeholder={'login'}/>
-                <br/>
+
+                <input type="email" placeholder={'email'}/>
+
                 <input type="password" placeholder={'password'}/>
-                <br/>
-                <input type="password" placeholder={'password confirm'}/>
 
                 </Modal>
             )}
