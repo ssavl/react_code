@@ -19,6 +19,16 @@ const initialState = {
         value: '',
         required: true,
     },
+    username: {
+        error: '',
+        value: '',
+        required: true,
+    },
+    password: {
+        error: '',
+        value: '',
+        required: true,
+    },
     code: {
         error: '',
         value: '',
@@ -51,13 +61,9 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case AUTH_CHANGE_FIELD: {
-            const { field, value } = payload;
+            const { field } = payload;
             return {
-                ...state,
-                [field]: {
-                    ...state[field],
-                    value,
-                    error: '',
+                ...state, [field]: {...state.field, value: payload.value, error: '',
                 },
             };
         }
@@ -104,11 +110,7 @@ export default function (state = initialState, action) {
             };
         }
         case AUTH_SET_USER: {
-            const { user } = payload;
-            return {
-                ...state,
-                user,
-                isAuthenticated: true,
+            return {...state, user: payload.user, isAuthenticated: true,
             };
         }
 

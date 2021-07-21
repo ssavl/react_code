@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, {useEffect, useState} from 'react'
 import Layout from '../hoc/Layout/Layout'
 import {connect} from "react-redux";
+import Collapsible from "react-collapsible";
 
 // Actions
 import { setNews } from '../action/news'
@@ -15,6 +16,8 @@ import { JsonCall } from '../util/apiCall'
 import Button from "../components/Button";
 
 const Home = ({news, setNews, counter}) => {
+
+    const [openCollapse, setCollapse] = useState(false)
 
     const newsApi = JsonCall()
 

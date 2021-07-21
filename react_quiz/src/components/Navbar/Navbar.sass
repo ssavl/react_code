@@ -8,16 +8,36 @@
   justify-content: space-between
   align-items: center
 
+  &__burger
+    background: transparent
+    color: white
+    width: 100px
+
+    &-wrapper
+      width: 35px
+      height: 35px
+      margin: 0 10px 0 10px
+      & svg
+        height: 100%
+        width: 100%
+        fill: white
+        &:hover
+          fill: gold
+
   &__item
     margin: 0 10px
     text-decoration: none
     color: white
+    cursor: pointer
+    &:hover
+      color: gold
 
   &__bar
     position: relative
     display: flex
     justify-content: space-between
     align-items: center
+    margin-right: 80px
 
 
 .h1
@@ -32,3 +52,8 @@
   font-size: 15px
   color: white
   padding: 10px 40px
+
+
+
+
+

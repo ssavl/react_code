@@ -1,0 +1,88 @@
+@import '../../theme/colors'
+
+.UserInfo
+  position: absolute
+  top: -20px
+  right: 0
+  background: $color-grey-F7F7FA
+  padding: 5px
+  border-radius: 23px
+  box-sizing: border-box
+  @media (max-width: 500px)
+    grid-gap: 10px
+
+  &__wrapper
+    position: relative
+    min-width: 80px
+
+  &__base
+    display: grid
+    grid-template-columns: 1fr 35px
+    grid-gap: 15px
+
+  &__collapse
+    color: black
+    border-radius: 30px
+    max-height: 230px
+
+  &__left
+    display: flex
+    align-items: center
+
+  &__btn-collapse
+    padding: 0
+    background-color: transparent
+    border: none
+    width: 24px
+    height: 24px
+    margin-left: 5px
+    margin-right: 10px
+    @media (max-width: 500px)
+      margin-right: 0
+    & svg
+      fill: $color-grey-9599B0
+
+
+  &__name
+    font-size: 14px
+    white-space: nowrap
+    color: black
+    overflow: hidden
+    transition: max-width 0.2s
+    @media (max-width: 500px)
+      max-width: 0
+
+
+
+    &-is-open
+      max-width: 100px
+
+
+
+  &__avatar
+    width: 35px
+    height: 35px
+    border-radius: 50%
+    background-color: rgba($color-text, 0.1)
+    display: flex
+    align-items: center
+    justify-content: center
+
+    & svg
+      fill: rgba($color-text, 0.3)
+      height: 20px
+      width: 20px
+
+  &__login
+    background-color: $color-grey-F7F7FA
+    border-radius: 30px
+    padding: 13px 0
+    color: $color-blue
+    font-size: 14px
+    font-weight: 500
+    border: none
+    width: 90px
+    cursor: pointer
+    transition: background-color 0.2s ease-out
+    &:hover
+      background-color: $color-grey-ECECEC
